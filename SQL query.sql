@@ -1,56 +1,4 @@
-create table Employee(
-Empid int primary key,
-EmpName varchar(50),
-DepartmentID int,
-HireDate Date,
-Salary decimal(10,2)
-);
-
-create table Department(
-DepartmentID int primary key,
-DeptName varchar(50)
-);
-
-
-create table Performance(
-Empid int,
-ReviewDate date,
-score int check(score between 1 and 10),
-foreign key(empid) references employee(empid)
-);
-
-
-insert into department values
-(1,'HR'),
-(2,'IT'),
-(3,'Finance');
-
-
-insert into employee values
-(101,'aLice',1,'2020-01-15',60000),
-(102,'bob',1,'2019-05-10',58000),
-(103,'charlie',2,'2021-03-01',75000),
-(104,'david',2,'2022-07-12',72000),
-(105,'eva',3,'2018-11-03',82000);
-
-
-insert into performance values
-(101,'2023-01-01',8),
-(101,'2024-01-01',9),
-(102,'2023-01-01',7),
-(103,'2023-01-01',6),
-(104,'2024-01-01',9),
-(105,'2024-01-01',10);
-
-
-
-select * from department;
-select * from employee;
-select * from performance;
-
-select e.Empname ,d.DeptName from employee as e join department as d on e.DepartmentId = d.DepartmentId;
-
-
+-- Creating Customer dataset
 create table customer(
 customerid text,
 customer_unique_id text,
@@ -62,7 +10,7 @@ customer_state varchar(10)
 select * from customer
 limit 10;
 
-
+-- Creating the geolocation dataset
 create table geolocation(
 geolocation_zip_code_pprefix numeric,
 geolocation_lat numeric,
@@ -74,6 +22,7 @@ geolocation_stae varchar(10)
 select * from geolocation 
 limit 10;
 
+-- Creating a order item dataset
 create table order_item(
 order_id text,
 order_item_id int,
@@ -87,7 +36,7 @@ freight_value decimal(6,2)
 select * from order_item
 limit 10;
 
-
+-- Creating a order payment dataset
 create table order_payments(
 order_id text,
 payment_sequential int,
@@ -99,6 +48,7 @@ payment_value decimal(8,3)
 select * from order_payments
 limit 10;
 
+-- Creating a order review dataset
 create table order_review(
 review_id text,
 order_id text,
@@ -112,6 +62,8 @@ review_answer_timestamp timestamp
 select * from order_review
 limit 10;
 
+
+-- Creating a orders list of dataset
 create table orders(
 order_id text,
 customer_id text,
@@ -126,6 +78,8 @@ order_estimated_delivery_date timestamp
 select * from orders
 limit 10;
 
+
+-- Creating a products dataset
 create table products(
 product_id text,
 product_category_name text,
@@ -141,6 +95,7 @@ product_width_cm int
 select * from products
 limit 10;
 
+-- Creating a seller dataset
 create table sellers(
 seller_id text,
 seller_zip_code_prefix numeric,
@@ -151,6 +106,7 @@ seller_state text
 select * from sellers
 limit 10;
 
+-- Creating a product category name dataset
 create table product_category_name(
 product_category_name text,
 product_category_name_english text
